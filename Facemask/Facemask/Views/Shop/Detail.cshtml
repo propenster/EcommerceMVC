@@ -1,0 +1,255 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model Facemask.ViewModels.ProductDetailViewModel
+@{
+    ViewBag.Title = "Product";
+    Layout = "_ShopLayout";
+}
+
+
+<div class="section">
+    <div class="container">
+        <div class="row col-spacing-50">
+            <div class="col-12 col-lg-7">
+                <div class="owl-carousel product-carousel owl-dots-overlay-right">
+                    <div data-hash="1">
+                        <img src="../assets/images/product-single-1.jpg" alt="">
+                    </div>
+                    <div data-hash="2">
+                        <img src="../assets/images/product-single-2.jpg" alt="">
+                    </div>
+                    <div data-hash="3">
+                        <img src="../assets/images/product-single-3.jpg" alt="">
+                    </div>
+                </div>
+                <ul class="product-carousel-thumbnails">
+                    <li><a href="#1"><img src="../assets/images/product-single-1.jpg" alt=""></a></li>
+                    <li><a href="#2"><img src="../assets/images/product-single-2.jpg" alt=""></a></li>
+                    <li><a href="#3"><img src="../assets/images/product-single-3.jpg" alt=""></a></li>
+                </ul>
+            </div>
+            <div class="col-12 col-lg-5">
+                <ul class="list-inline-slash font-small margin-bottom-10">
+                    <li><a href="#">Technology</a></li>
+                    <li><a href="#">Smart Watch</a></li>
+                </ul>
+                <h3 class="font-weight-normal margin-0">Smart Watch</h3>
+                <div class="product-price">
+                    <h5 class="font-weight-light"><del>$399</del><ins>$360</ins></h5>
+                </div>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.</p>
+                <form class="product-quantity margin-top-30">
+                    <div class="qnt">
+                        <input type="number" id="quantity" name="quantity" min="1" max="10" value="1">
+                    </div>
+                    <button class="button button-md button-dark" type="submit">Add to Cart</button>
+                </form>
+                <div class="margin-top-30">
+                    <p>SKU: 7777</p>
+                    <a class="button-text-1 margin-top-10" href="#">Add to Wishlist</a>
+                </div>
+            </div>
+        </div><!-- end row -->
+    </div><!-- end container -->
+</div>
+
+<div class="container">
+    <div class="product-info-box">
+        <ul class="nav margin-bottom-20">
+            <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" href="#specs">Specifications</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#additional-info">Additional Info</a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane fade show active" id="specs">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <th scope="row">Weight</th>
+                            <td>25 g</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Dimension</th>
+                            <td>38.6 x 33.3 x 10.5 mm</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Color</th>
+                            <td>Space Gray, Rose, White</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Care</th>
+                            <td>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="tab-pane fade" id="additional-info">
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
+                <p>Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.</p>
+            </div>
+        </div>
+    </div>
+</div><!-- end container -->
+<!-- Related Products -->
+<div class="section">
+    <div class="container">
+        <div class="margin-bottom-70 text-center">
+            <h3 class="font-weight-normal">Related Products</h3>
+        </div>
+        <div class="owl-carousel" data-owl-dots="false" data-owl-autoplay="true" data-owl-margin="30" data-owl-xs="1" data-owl-sm="2" data-owl-md="3" data-owl-lg="3" data-owl-xl="3">
+            <!-- Carousel Item -->
+            <div class="product-box">
+                <div class="product-img">
+                    <!-- Product IMG -->
+                    <a class="product-img-link" href="product-single.html">
+                        <img src="../assets/images/product-hoodie.jpg" alt="">
+                    </a>
+                    <!-- Badge (left) -->
+                    <div class="product-badge-left">
+                        <span>New</span>
+                    </div>
+                    <!-- Badge (right) -->
+                    <!--<div class="product-badge-right red">
+                        <span>-50%</span>
+                    </div>-->
+                    <!-- Add to Cart -->
+                    <div class="add-to-cart">
+                        <a href="#">Add to Cart</a>
+                    </div>
+                </div>
+                <div class="product-title">
+                    <!-- Product Title -->
+                    <h6 class="font-weight-medium"><a href="product-single.html">Light Gray Hoodie</a></h6>
+                    <!-- Product Price -->
+                    <div class="price">
+                        <span>$59</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Carousel Item -->
+            <div class="product-box">
+                <div class="product-img">
+                    <!-- Product IMG -->
+                    <a class="product-img-link" href="product-single.html">
+                        <img src="../assets/images/product-umbrella.jpg" alt="">
+                    </a>
+                    <!-- Badge (left) -->
+                    <div class="product-badge-left">
+                        <span>New</span>
+                    </div>
+                    <!-- Badge (right) -->
+                    <!--<div class="product-badge-right red">
+                        <span>-50%</span>
+                    </div>-->
+                    <!-- Add to Cart -->
+                    <div class="add-to-cart">
+                        <a href="#">Add to Cart</a>
+                    </div>
+                </div>
+                <div class="product-title">
+                    <!-- Product Title -->
+                    <h6 class="font-weight-medium"><a href="product-single.html">Black Umbrella</a></h6>
+                    <!-- Product Price -->
+                    <div class="price">
+                        <span>$34</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Carousel Item -->
+            <div class="product-box">
+                <div class="product-img">
+                    <!-- Product IMG -->
+                    <a class="product-img-link" href="product-single.html">
+                        <img src="../assets/images/product-flipflops.jpg" alt="">
+                    </a>
+                    <!-- Badge (left) -->
+                    <div class="product-badge-left">
+                        <span>New</span>
+                    </div>
+                    <!-- Badge (right) -->
+                    <div class="product-badge-right red">
+                        <span>-50%</span>
+                    </div>
+                    <!-- Add to Cart -->
+                    <div class="add-to-cart">
+                        <a href="#">Add to Cart</a>
+                    </div>
+                </div>
+                <div class="product-title">
+                    <!-- Product Title -->
+                    <h6 class="font-weight-medium"><a href="product-single.html">Summer Flip Flops</a></h6>
+                    <!-- Product Price -->
+                    <div class="price">
+                        <del>$68</del>
+                        <span>$34</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Carousel Item -->
+            <div class="product-box">
+                <div class="product-img">
+                    <!-- Product IMG -->
+                    <a class="product-img-link" href="product-single.html">
+                        <img src="../assets/images/product-shoes.jpg" alt="">
+                    </a>
+                    <!-- Badge (left) -->
+                    <!--<div class="product-badge-left">
+                        <span>New</span>
+                    </div>-->
+                    <!-- Badge (right) -->
+                    <div class="product-badge-right red">
+                        <span>-50%</span>
+                    </div>
+                    <!-- Add to Cart -->
+                    <div class="add-to-cart">
+                        <a href="#">Add to Cart</a>
+                    </div>
+                </div>
+                <div class="product-title">
+                    <!-- Product Title -->
+                    <h6 class="font-weight-medium"><a href="product-single.html">Slip-on Sneakers</a></h6>
+                    <!-- Product Price -->
+                    <div class="price">
+                        <del>$98</del>
+                        <span>$49</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Carousel Item -->
+            <div class="product-box">
+                <div class="product-img">
+                    <!-- Product IMG -->
+                    <a class="product-img-link" href="product-single.html">
+                        <img src="../assets/images/product-pillow.jpg" alt="">
+                    </a>
+                    <!-- Badge (left) -->
+                    <!--<div class="product-badge-left">
+                        <span>New</span>
+                    </div>-->
+                    <!-- Badge (right) -->
+                    <div class="product-badge-right red">
+                        <span>-50%</span>
+                    </div>
+                    <!-- Add to Cart -->
+                    <div class="add-to-cart">
+                        <a href="#">Add to Cart</a>
+                    </div>
+                </div>
+                <div class="product-title">
+                    <!-- Product Title -->
+                    <h6 class="font-weight-medium"><a href="product-single.html">Gradient Pillows</a></h6>
+                    <!-- Product Price -->
+                    <div class="price">
+                        <del>$49</del>
+                        <span>$24</span>
+                    </div>
+                </div>
+            </div>
+        </div><!-- end owl-carousel -->
+    </div><!-- end container -->
+</div>
+<!-- end Related Products -->

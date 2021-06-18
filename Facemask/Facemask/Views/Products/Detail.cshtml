@@ -1,0 +1,50 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model Facemask.ViewModels.ProductDetailViewModel
+@{
+    ViewBag.Title = "Product Page";
+    var thumbnailPhotoPath = "~/Thumbnails/" + (Model.Thumbnail ?? "noimage.jpg");
+    var imagePhotoPath = "~/Images/" + (Model.Image ?? "noimage.jpg");
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Product - @Model.Id  </h3>
+                    <h3>Product Name: @Model.Name </h3>
+                    <img class="card-img" height="50" width="50" src="@thumbnailPhotoPath" asp-append-version="true"/>
+                </div>
+
+                <div class="card-body text-center">
+                    <img class="card-img-top" src="@imagePhotoPath" height="250" width="250" asp-append-version="true"/>
+                    <p class="">
+                        @Model.Descriptions
+                    </p>
+                    <h4>Weight: @Model.Weight</h4>
+                    <h4>Stock: @Model.Stock</h4>
+                    <h4>Category: @Model.Category</h4>
+                    <h4>Date In: @Model.CreatedDate </h4>
+
+
+                </div>
+
+                <div class="card-footer text-center">
+                    <a asp-controller="Shop" asp-action="Index" class="btn btn-primary">Go back to shop</a>
+                    <a asp-controller="Products" asp-action="Index" class="btn btn-success">Products Home Page</a>
+                    <a asp-controller="Products" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-info">Go to Edit</a>
+                </div>
+            </div>
+
+
+
+        </div>
+
+        <div class="col-lg-4">
+            <h3>Sidebar</h3>
+
+        </div>
+    </div>
+</div>

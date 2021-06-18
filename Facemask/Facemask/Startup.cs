@@ -1,10 +1,14 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
+using Facemask.DAL;
+using Facemask.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -23,6 +27,17 @@ namespace Facemask
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+            services.AddDbContext<FacemaskDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            //services.AddDbContext<FacemaskDbContext>(options => options.UseSqlite(Configuration.GetConnectionString("SqliteDbConnection")));
+            services.AddIdentity<User, Role>(config =>
+            {
+                config.Password.RequiredLength = 10;
+                config.Password.RequiredUniqueChars = 3;
+                config.Lockout.MaxFailedAccessAttempts = 5;
+            }).AddEntityFrameworkStores<FacemaskDbContext>();
+            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
             services.AddControllersWithViews();
         }
 
@@ -45,12 +60,15 @@ namespace Facemask
             app.UseRouting();
 
             app.UseAuthorization();
+            app.UseAuthentication();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    //pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Shop}/{action=Index}/{id?}");
+
             });
         }
     }

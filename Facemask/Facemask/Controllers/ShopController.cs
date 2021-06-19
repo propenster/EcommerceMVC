@@ -26,9 +26,9 @@ namespace Facemask.Controllers
         public IActionResult Index()
         {
             IEnumerable<Product> products = _productService.GetAllProducts();
-            var productsToView = _mapper.Map<ProductDetailViewModel>(products);
-            ViewBag.ProductList = productsToView;
-            return View();
+            var productsToView = _mapper.Map<IEnumerable<ProductDetailViewModel>>(products);
+            //ViewBag.ProductList = productsToView;
+            return View(productsToView);
         }
 
         [HttpGet]

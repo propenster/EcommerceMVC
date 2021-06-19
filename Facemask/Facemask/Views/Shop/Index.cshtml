@@ -1,12 +1,11 @@
 ﻿@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
+@model IEnumerable<Facemask.ViewModels.ProductDetailViewModel>
 @{
     ViewBag.Title = "Shop Home";
     Layout = "_ShopLayout";
 }
-
-
 
 
 
@@ -16,195 +15,199 @@
         <!-- Products -->
         <div class="row col-spacing-30">
             <!-- Product box 1 -->
-            <div class="col-12 col-sm-6 col-lg-4">
-                <div class="product-box">
-                    <div class="product-img">
-                        <!-- Product IMG -->
-                        <a class="product-img-link" href="product-single.html">
-                            <img src="../assets/images/product-watch.jpg" alt="">
-                        </a>
-                        <!-- Badge (left) -->
-                        <div class="product-badge-left">
-                            <span>New</span>
+            @foreach (var Item in Model)
+            {
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="product-box">
+                        <div class="product-img">
+                            <!-- Product IMG -->
+                            <a class="product-img-link" asp-controller="Shop" asp-action="Detail" asp-route-slug="@Item.Slug">
+                                <img src="@Item.Image" asp-append-version="true" alt="">
+                            </a>
+                            <!-- Badge (left) -->
+                            <div class="product-badge-left">
+                                <span>New</span>
+                            </div>
+                            <!-- Badge (right) -->
+                            <div class="product-badge-right red">
+                                <span>-10%</span>
+                            </div>
+                            <!-- Add to Cart -->
+                            <div class="add-to-cart">
+                                <a href="#">Add to Cart</a>
+                            </div>
                         </div>
-                        <!-- Badge (right) -->
-                        <div class="product-badge-right red">
-                            <span>-10%</span>
-                        </div>
-                        <!-- Add to Cart -->
-                        <div class="add-to-cart">
-                            <a href="#">Add to Cart</a>
-                        </div>
-                    </div>
-                    <div class="product-title">
-                        <!-- Product Title -->
-                        <h6 class="font-weight-medium"><a href="product-single.html">Mono Smart Watch</a></h6>
-                        <!-- Product Price -->
-                        <div class="price">
-                            <del>$399</del>
-                            <span>$360</span>
+                        <div class="product-title">
+                            <!-- Product Title -->
+                            <h6 class="font-weight-medium"><a asp-controller="Shop" asp-action="Detail" asp-route-slug="@Item.Slug">@Item.Name</a></h6>
+                            <!-- Product Price -->
+                            <div class="price">
+                                <del>$399</del>
+                                <span>@Item.Price</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            }
+
             <!-- Product box 2 -->
-            <div class="col-12 col-sm-6 col-lg-4">
-                <div class="product-box">
-                    <div class="product-img">
-                        <!-- Product IMG -->
-                        <a class="product-img-link" href="product-single.html">
-                            <img src="../assets/images/product-hoodie.jpg" alt="">
-                        </a>
-                        <!-- Badge (left) -->
-                        <div class="product-badge-left">
-                            <span>New</span>
-                        </div>
-                        <!-- Badge (right) -->
-                        <!--<div class="product-badge-right red">
-                            <span>-50%</span>
-                        </div>-->
-                        <!-- Add to Cart -->
-                        <div class="add-to-cart">
-                            <a href="#">Add to Cart</a>
-                        </div>
-                    </div>
-                    <div class="product-title">
-                        <!-- Product Title -->
-                        <h6 class="font-weight-medium"><a href="product-single.html">Light Gray Hoodie</a></h6>
-                        <!-- Product Price -->
-                        <div class="price">
-                            <span>$59</span>
-                        </div>
-                    </div>
+            <!--<div class="col-12 col-sm-6 col-lg-4">
+        <div class="product-box">
+            <div class="product-img">-->
+            <!-- Product IMG -->
+            <!--<a class="product-img-link" href="product-single.html">
+        <img src="../assets/images/product-hoodie.jpg" alt="">
+    </a>-->
+            <!-- Badge (left) -->
+            <!--<div class="product-badge-left">
+        <span>New</span>
+    </div>-->
+            <!-- Badge (right) -->
+            <!--<div class="product-badge-right red">
+        <span>-50%</span>
+    </div>-->
+            <!-- Add to Cart -->
+            <!--<div class="add-to-cart">
+            <a href="#">Add to Cart</a>
+        </div>
+    </div>
+    <div class="product-title">-->
+            <!-- Product Title -->
+            <!--<h6 class="font-weight-medium"><a href="product-single.html">Light Gray Hoodie</a></h6>-->
+            <!-- Product Price -->
+            <!--<div class="price">
+                    <span>$59</span>
                 </div>
             </div>
+        </div>
+    </div>-->
             <!-- Product box 3 -->
-            <div class="col-12 col-sm-6 col-lg-4">
-                <div class="product-box">
-                    <div class="product-img">
-                        <!-- Product IMG -->
-                        <a class="product-img-link" href="product-single.html">
-                            <img src="../assets/images/product-umbrella.jpg" alt="">
-                        </a>
-                        <!-- Badge (left) -->
-                        <div class="product-badge-left">
-                            <span>New</span>
-                        </div>
-                        <!-- Badge (right) -->
-                        <!--<div class="product-badge-right red">
-                            <span>-50%</span>
-                        </div>-->
-                        <!-- Add to Cart -->
-                        <div class="add-to-cart">
-                            <a href="#">Add to Cart</a>
-                        </div>
-                    </div>
-                    <div class="product-title">
-                        <!-- Product Title -->
-                        <h6 class="font-weight-medium"><a href="product-single.html">Black Umbrella</a></h6>
-                        <!-- Product Price -->
-                        <div class="price">
-                            <span>$34</span>
-                        </div>
-                    </div>
+            <!--<div class="col-12 col-sm-6 col-lg-4">
+        <div class="product-box">
+            <div class="product-img">-->
+            <!-- Product IMG -->
+            <!--<a class="product-img-link" href="product-single.html">
+        <img src="../assets/images/product-umbrella.jpg" alt="">
+    </a>-->
+            <!-- Badge (left) -->
+            <!--<div class="product-badge-left">
+        <span>New</span>
+    </div>-->
+            <!-- Badge (right) -->
+            <!--<div class="product-badge-right red">
+        <span>-50%</span>
+    </div>-->
+            <!-- Add to Cart -->
+            <!--<div class="add-to-cart">
+            <a href="#">Add to Cart</a>
+        </div>
+    </div>
+    <div class="product-title">-->
+            <!-- Product Title -->
+            <!--<h6 class="font-weight-medium"><a href="product-single.html">Black Umbrella</a></h6>-->
+            <!-- Product Price -->
+            <!--<div class="price">
+                    <span>$34</span>
                 </div>
             </div>
+        </div>
+    </div>-->
             <!-- Product box 4 -->
-            <div class="col-12 col-sm-6 col-lg-4">
-                <div class="product-box">
-                    <div class="product-img">
-                        <!-- Product IMG -->
-                        <a class="product-img-link" href="product-single.html">
-                            <img src="../assets/images/product-flipflops.jpg" alt="">
-                        </a>
-                        <!-- Badge (left) -->
-                        <div class="product-badge-left">
-                            <span>New</span>
-                        </div>
-                        <!-- Badge (right) -->
-                        <div class="product-badge-right red">
-                            <span>-50%</span>
-                        </div>
-                        <!-- Add to Cart -->
-                        <div class="add-to-cart">
-                            <a href="#">Add to Cart</a>
-                        </div>
-                    </div>
-                    <div class="product-title">
-                        <!-- Product Title -->
-                        <h6 class="font-weight-medium"><a href="product-single.html">Summer Flip Flops</a></h6>
-                        <!-- Product Price -->
-                        <div class="price">
-                            <del>$68</del>
-                            <span>$34</span>
-                        </div>
-                    </div>
+            <!--<div class="col-12 col-sm-6 col-lg-4">
+        <div class="product-box">
+            <div class="product-img">-->
+            <!-- Product IMG -->
+            <!--<a class="product-img-link" href="product-single.html">
+        <img src="../assets/images/product-flipflops.jpg" alt="">
+    </a>-->
+            <!-- Badge (left) -->
+            <!--<div class="product-badge-left">
+        <span>New</span>
+    </div>-->
+            <!-- Badge (right) -->
+            <!--<div class="product-badge-right red">
+        <span>-50%</span>
+    </div>-->
+            <!-- Add to Cart -->
+            <!--<div class="add-to-cart">
+            <a href="#">Add to Cart</a>
+        </div>
+    </div>
+    <div class="product-title">-->
+            <!-- Product Title -->
+            <!--<h6 class="font-weight-medium"><a href="product-single.html">Summer Flip Flops</a></h6>-->
+            <!-- Product Price -->
+            <!--<div class="price">
+                    <del>$68</del>
+                    <span>$34</span>
                 </div>
             </div>
+        </div>
+    </div>-->
             <!-- Product box 5 -->
-            <div class="col-12 col-sm-6 col-lg-4">
-                <div class="product-box">
-                    <div class="product-img">
-                        <!-- Product IMG -->
-                        <a class="product-img-link" href="product-single.html">
-                            <img src="../assets/images/product-shoes.jpg" alt="">
-                        </a>
-                        <!-- Badge (left) -->
-                        <!--<div class="product-badge-left">
-                            <span>New</span>
-                        </div>-->
-                        <!-- Badge (right) -->
-                        <div class="product-badge-right red">
-                            <span>-50%</span>
-                        </div>
-                        <!-- Add to Cart -->
-                        <div class="add-to-cart">
-                            <a href="#">Add to Cart</a>
-                        </div>
-                    </div>
-                    <div class="product-title">
-                        <!-- Product Title -->
-                        <h6 class="font-weight-medium"><a href="product-single.html">Slip-on Sneakers</a></h6>
-                        <!-- Product Price -->
-                        <div class="price">
-                            <del>$98</del>
-                            <span>$49</span>
-                        </div>
-                    </div>
+            <!--<div class="col-12 col-sm-6 col-lg-4">
+        <div class="product-box">
+            <div class="product-img">-->
+            <!-- Product IMG -->
+            <!--<a class="product-img-link" href="product-single.html">
+        <img src="../assets/images/product-shoes.jpg" alt="">
+    </a>-->
+            <!-- Badge (left) -->
+            <!--<div class="product-badge-left">
+        <span>New</span>
+    </div>-->
+            <!-- Badge (right) -->
+            <!--<div class="product-badge-right red">
+        <span>-50%</span>
+    </div>-->
+            <!-- Add to Cart -->
+            <!--<div class="add-to-cart">
+            <a href="#">Add to Cart</a>
+        </div>
+    </div>
+    <div class="product-title">-->
+            <!-- Product Title -->
+            <!--<h6 class="font-weight-medium"><a href="product-single.html">Slip-on Sneakers</a></h6>-->
+            <!-- Product Price -->
+            <!--<div class="price">
+                    <del>$98</del>
+                    <span>$49</span>
                 </div>
             </div>
+        </div>
+    </div>-->
             <!-- Product box 6 -->
-            <div class="col-12 col-sm-6 col-lg-4">
-                <div class="product-box">
-                    <div class="product-img">
-                        <!-- Product IMG -->
-                        <a class="product-img-link" href="product-single.html">
-                            <img src="../assets/images/product-pillow.jpg" alt="">
-                        </a>
-                        <!-- Badge (left) -->
-                        <!--<div class="product-badge-left">
-                            <span>New</span>
-                        </div>-->
-                        <!-- Badge (right) -->
-                        <div class="product-badge-right red">
-                            <span>-50%</span>
-                        </div>
-                        <!-- Add to Cart -->
-                        <div class="add-to-cart">
-                            <a href="#">Add to Cart</a>
-                        </div>
-                    </div>
-                    <div class="product-title">
-                        <!-- Product Title -->
-                        <h6 class="font-weight-medium"><a href="product-single.html">Gradient Pillows</a></h6>
-                        <!-- Product Price -->
-                        <div class="price">
-                            <del>$49</del>
-                            <span>$24</span>
-                        </div>
-                    </div>
+            <!--<div class="col-12 col-sm-6 col-lg-4">
+        <div class="product-box">
+            <div class="product-img">-->
+            <!-- Product IMG -->
+            <!--<a class="product-img-link" href="product-single.html">
+        <img src="../assets/images/product-pillow.jpg" alt="">
+    </a>-->
+            <!-- Badge (left) -->
+            <!--<div class="product-badge-left">
+        <span>New</span>
+    </div>-->
+            <!-- Badge (right) -->
+            <!--<div class="product-badge-right red">
+        <span>-50%</span>
+    </div>-->
+            <!-- Add to Cart -->
+            <!--<div class="add-to-cart">
+            <a href="#">Add to Cart</a>
+        </div>
+    </div>
+    <div class="product-title">-->
+            <!-- Product Title -->
+            <!--<h6 class="font-weight-medium"><a href="product-single.html">Gradient Pillows</a></h6>-->
+            <!-- Product Price -->
+            <!--<div class="price">
+                    <del>$49</del>
+                    <span>$24</span>
                 </div>
             </div>
+        </div>
+    </div>-->
         </div><!-- end row -->
         <!-- Pagination -->
         <div class="text-center margin-top-50">

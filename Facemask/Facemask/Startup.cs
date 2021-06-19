@@ -39,7 +39,7 @@ namespace Facemask
         {
             //services.AddDbContext<FacemaskDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddDbContextPool<FacemaskDbContext>(options => options.UseSqlite(Configuration.GetConnectionString("SqliteDbConnection")));
-            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+            //services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             //services.AddTransient<IUnitOfWork, UnitOfWork>();
             //services.AddTransient<ICategoryService, CategoryService>();
             //services.AddTransient<IOrderService, OrderService>();
@@ -57,7 +57,7 @@ namespace Facemask
                 config.Lockout.MaxFailedAccessAttempts = 5;
             }).AddEntityFrameworkStores<FacemaskDbContext>();
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
-            ///services.ConfigureDI();
+            services.ConfigureDI();
             services.AddControllersWithViews();
             services.AddMvc();
         }

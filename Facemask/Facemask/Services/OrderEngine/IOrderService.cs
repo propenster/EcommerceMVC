@@ -11,7 +11,7 @@ namespace Facemask.Services.OrderEngine
         IEnumerable<Order> GetAllOrders();
         IEnumerable<Order> GetPaginatedOrders(int Page, int Limit);
         IEnumerable<Order> GetOrdersByCount(int Count);
-        Product GetSingleOrder(int Id);
+        Order GetSingleOrder(int Id);
         void AddSingleOrder(Order order);
         void AddManyOrders(IEnumerable<Order> orders);
         void UpdateOrder(Order order);

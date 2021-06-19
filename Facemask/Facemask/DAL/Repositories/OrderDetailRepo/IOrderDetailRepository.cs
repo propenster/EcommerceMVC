@@ -9,6 +9,7 @@ namespace Facemask.DAL.Repositories.OrderDetailRepo
     public interface IOrderDetailRepository : IRepository<OrderDetail>
     {
 
+        IEnumerable<OrderDetail> GetPaginatedOrderDetails(int Page, int Limit);
 
     }
 }

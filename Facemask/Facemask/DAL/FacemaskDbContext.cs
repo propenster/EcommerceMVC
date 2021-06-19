@@ -26,8 +26,8 @@ namespace Facemask.DAL
         {
             base.OnModelCreating(builder);
             builder.Entity<Category>().HasMany<Product>().WithOne().HasForeignKey(p => p.CategoryId);
-            builder.Entity<OrderDetail>().HasOne<Product>().WithOne();
-            builder.Entity<OrderDetail>().HasOne<Order>().WithOne();
+            builder.Entity<OrderDetail>().HasOne(p => p.Product).WithOne();
+            builder.Entity<OrderDetail>().HasOne(p => p.Order).WithOne();
             //builder.Entity<User>().HasMany<Order>().WithOne();
         }
     }

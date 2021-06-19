@@ -15,7 +15,7 @@ namespace Facemask.Models
         [JsonProperty("category_id")]
         public int Id { get; set; }
         [JsonProperty("customer_id")]
-        public int CustomerId { get; set; }
+        public string CustomerId { get; set; }
         [ForeignKey("CustomerId")]
         [JsonProperty("customer")]
         public User Customer { get; set; } //AuthUser

@@ -19,21 +19,21 @@ namespace Facemask.Extensions
     {
 
 
-        public static IServiceCollection ConfigureDI(this IServiceCollection services)
-        {
-            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-            services.AddScoped<IUnitOfWork, UnitOfWork>();
-            services.AddScoped<ICategoryService, CategoryService>();
-            services.AddScoped<IOrderService, OrderService>();
-            services.AddScoped<IOrderDetailService, OrderDetailService>();
-            services.AddScoped<IProductService, ProductService>();
-            services.AddScoped<ICategoryRepository, CategoryRepository>();
-            services.AddScoped<IOrderRepository, OrderRepository>();
-            services.AddScoped<IOrderDetailRepository, OrderDetailRepository>();
-            services.AddScoped<IProductRepository, ProductRepository>();
+        //public static IServiceCollection ConfigureDI(this IServiceCollection services)
+        //{
+        //    services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+        //    services.AddScoped<IUnitOfWork, UnitOfWork>();
+        //    services.AddScoped<ICategoryService, CategoryService>();
+        //    services.AddScoped<IOrderService, OrderService>();
+        //    services.AddScoped<IOrderDetailService, OrderDetailService>();
+        //    services.AddScoped<IProductService, ProductService>();
+        //    services.AddScoped<ICategoryRepository, CategoryRepository>();
+        //    services.AddScoped<IOrderRepository, OrderRepository>();
+        //    services.AddScoped<IOrderDetailRepository, OrderDetailRepository>();
+        //    services.AddScoped<IProductRepository, ProductRepository>();
 
 
-            return services;
-        }
+        //    return services;
+        //}
     }
 }

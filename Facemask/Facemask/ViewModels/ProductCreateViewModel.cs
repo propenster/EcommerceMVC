@@ -15,6 +15,8 @@ namespace Facemask.ViewModels
         [Required]
         public string Name { get; set; }
         [Required]
+        public decimal Price { get; set; }
+        [Required]
         public int Weight { get; set; }
         [Required]
         public string Descriptions { get; set; }

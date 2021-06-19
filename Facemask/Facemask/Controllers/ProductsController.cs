@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Facemask.Models;
 using Facemask.Services.ProductEngine;
 using Facemask.ViewModels;
@@ -15,6 +16,7 @@ namespace Facemask.Controllers
     {
         private readonly IProductService _productService;
         private readonly IWebHostEnvironment _webHostEnvironment;
+        //IMapper _mapper;
 
         public ProductsController(IProductService productService, IWebHostEnvironment webHostEnvironment)
         {

@@ -4,7 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Facemask.DAL;
+using Facemask.DAL.Repositories.CategoryRepo;
+using Facemask.DAL.Repositories.OrderDetailRepo;
+using Facemask.DAL.Repositories.OrderRepo;
+using Facemask.DAL.Repositories.ProductRepo;
+using Facemask.DAL.WorkUnits;
+using Facemask.Extensions;
 using Facemask.Models;
+using Facemask.Services.CategoryEngine;
+using Facemask.Services.OrderDetailEngine;
+using Facemask.Services.OrderEngine;
+using Facemask.Services.ProductEngine;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -27,10 +37,19 @@ namespace Facemask
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //services.AddDbContext<FacemaskDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContextPool<FacemaskDbContext>(options => options.UseSqlite(Configuration.GetConnectionString("SqliteDbConnection")));
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+            //services.AddTransient<IUnitOfWork, UnitOfWork>();
+            //services.AddTransient<ICategoryService, CategoryService>();
+            //services.AddTransient<IOrderService, OrderService>();
+            //services.AddTransient<IOrderDetailService, OrderDetailService>();
+            //services.AddTransient<IProductService, ProductService>();
+            //services.AddTransient<ICategoryRepository, CategoryRepository>();
+            //services.AddTransient<IOrderRepository, OrderRepository>();
+            //services.AddTransient<IOrderDetailRepository, OrderDetailRepository>();
+            //services.AddTransient<IProductRepository, ProductRepository>();
 
-            services.AddDbContext<FacemaskDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-            //services.AddDbContext<FacemaskDbContext>(options => options.UseSqlite(Configuration.GetConnectionString("SqliteDbConnection")));
             services.AddIdentity<User, Role>(config =>
             {
                 config.Password.RequiredLength = 10;
@@ -38,7 +57,9 @@ namespace Facemask
                 config.Lockout.MaxFailedAccessAttempts = 5;
             }).AddEntityFrameworkStores<FacemaskDbContext>();
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+            ///services.ConfigureDI();
             services.AddControllersWithViews();
+            services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

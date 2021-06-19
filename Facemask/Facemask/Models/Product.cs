@@ -19,6 +19,8 @@ namespace Facemask.Models
         public string Name { get; set; }
         [JsonProperty("slug")]
         public string? Slug { get; set; }
+        [JsonProperty("price")]
+        public decimal Price { get; set; }
         [JsonProperty("weight")]
         public int Weight { get; set; }
         [JsonProperty("descriptions")]

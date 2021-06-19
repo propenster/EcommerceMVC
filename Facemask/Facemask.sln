@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30621.155
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Facemask", "Facemask\Facemask.csproj", "{0E41F0C9-F024-4DB9-B1BC-4BEAA4F47AEF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Facemask", "Facemask\Facemask.csproj", "{0E41F0C9-F024-4DB9-B1BC-4BEAA4F47AEF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Facemask.Test", "Facemask.Test\Facemask.Test.csproj", "{A67C37B4-3803-4D32-A3C7-313F1E1321CA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{0E41F0C9-F024-4DB9-B1BC-4BEAA4F47AEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0E41F0C9-F024-4DB9-B1BC-4BEAA4F47AEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0E41F0C9-F024-4DB9-B1BC-4BEAA4F47AEF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A67C37B4-3803-4D32-A3C7-313F1E1321CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A67C37B4-3803-4D32-A3C7-313F1E1321CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A67C37B4-3803-4D32-A3C7-313F1E1321CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A67C37B4-3803-4D32-A3C7-313F1E1321CA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

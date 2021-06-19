@@ -12,6 +12,7 @@ namespace Facemask.Models
         public int Id { get; set; }
         [JsonProperty("order_id")]
         public int OrderId { get; set; }
+        [ForeignKey("OrderId")]
         public Order Order { get; set; }
         [JsonProperty("product_id")]
         public int ProductId { get; set; }

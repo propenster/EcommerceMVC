@@ -57,9 +57,6 @@ jobs:
         with:
           push: true
           tags: user/app:latest
-          secrets: |
-            GIT_AUTH_TOKEN=${{ secrets.MYTOKEN }}
-            working-directory: ${{env.solution-dir}}
       -
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}

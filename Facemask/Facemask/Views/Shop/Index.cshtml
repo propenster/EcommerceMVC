@@ -34,7 +34,7 @@
                             </div>
                             <!-- Add to Cart -->
                             <div class="add-to-cart">
-                                <a href="#">Add to Cart</a>
+                                <a asp-controller="Cart" asp-action="Add" asp-route-Id="@Item.Id">Add to Cart</a>
                             </div>
                         </div>
                         <div class="product-title">
@@ -42,7 +42,7 @@
                             <h6 class="font-weight-medium"><a asp-controller="Shop" asp-action="Detail" asp-route-slug="@Item.Slug">@Item.Name</a></h6>
                             <!-- Product Price -->
                             <div class="price">
-                                <del>$399</del>
+                                <del>$@(Item.Price + (0.1M * Item.Price))</del>
                                 <span>@Item.Price</span>
                             </div>
                         </div>

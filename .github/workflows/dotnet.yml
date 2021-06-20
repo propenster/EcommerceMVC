@@ -32,8 +32,6 @@ jobs:
       
   docker:
     runs-on: ubuntu-latest
-    env:
-        working-directory: ./Facemask
     steps:
       -
         name: Set up QEMU

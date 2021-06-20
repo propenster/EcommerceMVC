@@ -14,29 +14,30 @@
             <div class="col-12 col-lg-7">
                 <div class="owl-carousel product-carousel owl-dots-overlay-right">
                     <div data-hash="1">
-                        <img src="../assets/images/product-single-1.jpg" alt="">
+                        <img src="@ViewBag.ProductItem.Image" asp-append-version="true" alt="">
                     </div>
                     <div data-hash="2">
-                        <img src="../assets/images/product-single-2.jpg" alt="">
+                        <img src="@ViewBag.ProductItem.Thumbnail" alt="">
                     </div>
                     <div data-hash="3">
                         <img src="../assets/images/product-single-3.jpg" alt="">
                     </div>
                 </div>
                 <ul class="product-carousel-thumbnails">
-                    <li><a href="#1"><img src="../assets/images/product-single-1.jpg" alt=""></a></li>
+                    <li><a href="#1"><img src="@ViewBag.ProductItem.Thumbnail" asp-append-version="true" alt=""></a></li>
                     <li><a href="#2"><img src="../assets/images/product-single-2.jpg" alt=""></a></li>
                     <li><a href="#3"><img src="../assets/images/product-single-3.jpg" alt=""></a></li>
                 </ul>
             </div>
             <div class="col-12 col-lg-5">
                 <ul class="list-inline-slash font-small margin-bottom-10">
-                    <li><a href="#">Technology</a></li>
+                    @*<li><a href="#">Technology</a></li>*@
+                    <li><a href="#">@ViewBag.ProductItem.Category.Name</a></li>
                     <li><a href="#">Smart Watch</a></li>
                 </ul>
-                <h3 class="font-weight-normal margin-0">Smart Watch</h3>
+                <h3 class="font-weight-normal margin-0">@ViewBag.ProductItem.Name</h3>
                 <div class="product-price">
-                    <h5 class="font-weight-light"><del>$399</del><ins>$360</ins></h5>
+                    <h5 class="font-weight-light"><del>$399</del><ins>$@ViewBag.ProductItem.Price</ins></h5>
                 </div>
                 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.</p>
                 <form class="product-quantity margin-top-30">
@@ -46,7 +47,7 @@
                     <button class="button button-md button-dark" type="submit">Add to Cart</button>
                 </form>
                 <div class="margin-top-30">
-                    <p>SKU: 7777</p>
+                    <p>SKU: @ViewBag.ProductItem.Sku</p>
                     <a class="button-text-1 margin-top-10" href="#">Add to Wishlist</a>
                 </div>
             </div>
@@ -101,154 +102,189 @@
             <h3 class="font-weight-normal">Related Products</h3>
         </div>
         <div class="owl-carousel" data-owl-dots="false" data-owl-autoplay="true" data-owl-margin="30" data-owl-xs="1" data-owl-sm="2" data-owl-md="3" data-owl-lg="3" data-owl-xl="3">
-            <!-- Carousel Item -->
-            <div class="product-box">
-                <div class="product-img">
-                    <!-- Product IMG -->
-                    <a class="product-img-link" href="product-single.html">
-                        <img src="../assets/images/product-hoodie.jpg" alt="">
-                    </a>
-                    <!-- Badge (left) -->
-                    <div class="product-badge-left">
-                        <span>New</span>
-                    </div>
-                    <!-- Badge (right) -->
-                    <!--<div class="product-badge-right red">
+            @if (ViewBag.RelatedProducts != null)
+            {
+                @foreach (var item in ViewBag.RelatedProducts)
+                {
+                    <!-- Carousel Item -->
+                    <div class="product-box">
+                        <div class="product-img">
+                            <!-- Product IMG -->
+                            <a class="product-img-link" asp-controller="Shop" asp-action="Detail" asp-route-slug="@item?.Slug">
+                                <img src="@item?.Image" alt="">
+                            </a>
+                            <!-- Badge (left) -->
+                            <div class="product-badge-left">
+                                <span>New</span>
+                            </div>
+                            <!-- Badge (right) -->
+                            <!--<div class="product-badge-right red">
                         <span>-50%</span>
                     </div>-->
+                            <!-- Add to Cart -->
+                            <div class="add-to-cart">
+                                <a asp-controller="Cart" asp-action="Add" asp-route-Id="@item?.Id">Add to Cart</a>
+                            </div>
+                        </div>
+                        <div class="product-title">
+                            <!-- Product Title -->
+                            <h6 class="font-weight-medium"><a asp-controller="Shop" asp-action="Detail" asp-route-slug="@item?.Slug">@item?.Name</a></h6>
+                            <!-- Product Price -->
+                            <div class="price">
+                                <span>$@item?.Price</span>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+            <!-- Carousel Item -->
+            <!--<div class="product-box">
+                <div class="product-img">-->
+                    <!-- Product IMG -->
+                    <!--<a class="product-img-link" href="product-single.html">
+                        <img src="../assets/images/product-hoodie.jpg" alt="">
+                    </a>-->
+                    <!-- Badge (left) -->
+                    <!--<div class="product-badge-left">
+                        <span>New</span>
+                    </div>-->
+                    <!-- Badge (right) -->
+                    <!--<div class="product-badge-right red">
+                <span>-50%</span>
+            </div>-->
                     <!-- Add to Cart -->
-                    <div class="add-to-cart">
+                    <!--<div class="add-to-cart">
                         <a href="#">Add to Cart</a>
                     </div>
                 </div>
-                <div class="product-title">
+                <div class="product-title">-->
                     <!-- Product Title -->
-                    <h6 class="font-weight-medium"><a href="product-single.html">Light Gray Hoodie</a></h6>
+                    <!--<h6 class="font-weight-medium"><a href="product-single.html">Light Gray Hoodie</a></h6>-->
                     <!-- Product Price -->
-                    <div class="price">
+                    <!--<div class="price">
                         <span>$59</span>
                     </div>
                 </div>
-            </div>
+            </div>-->
             <!-- Carousel Item -->
-            <div class="product-box">
-                <div class="product-img">
+            <!--<div class="product-box">
+                <div class="product-img">-->
                     <!-- Product IMG -->
-                    <a class="product-img-link" href="product-single.html">
+                    <!--<a class="product-img-link" href="product-single.html">
                         <img src="../assets/images/product-umbrella.jpg" alt="">
-                    </a>
+                    </a>-->
                     <!-- Badge (left) -->
-                    <div class="product-badge-left">
+                    <!--<div class="product-badge-left">
                         <span>New</span>
+                    </div>-->
+                    <!-- Badge (right) -->
+                    <!--<div class="product-badge-right red">
+                <span>-50%</span>
+            </div>-->
+                    <!-- Add to Cart -->
+                    <!--<div class="add-to-cart">
+                        <a href="#">Add to Cart</a>
                     </div>
+                </div>
+                <div class="product-title">-->
+                    <!-- Product Title -->
+                    <!--<h6 class="font-weight-medium"><a href="product-single.html">Black Umbrella</a></h6>-->
+                    <!-- Product Price -->
+                    <!--<div class="price">
+                        <span>$34</span>
+                    </div>
+                </div>
+            </div>-->
+            <!-- Carousel Item -->
+            <!--<div class="product-box">
+                <div class="product-img">-->
+                    <!-- Product IMG -->
+                    <!--<a class="product-img-link" href="product-single.html">
+                        <img src="../assets/images/product-flipflops.jpg" alt="">
+                    </a>-->
+                    <!-- Badge (left) -->
+                    <!--<div class="product-badge-left">
+                        <span>New</span>
+                    </div>-->
                     <!-- Badge (right) -->
                     <!--<div class="product-badge-right red">
                         <span>-50%</span>
                     </div>-->
                     <!-- Add to Cart -->
-                    <div class="add-to-cart">
+                    <!--<div class="add-to-cart">
                         <a href="#">Add to Cart</a>
                     </div>
                 </div>
-                <div class="product-title">
+                <div class="product-title">-->
                     <!-- Product Title -->
-                    <h6 class="font-weight-medium"><a href="product-single.html">Black Umbrella</a></h6>
+                    <!--<h6 class="font-weight-medium"><a href="product-single.html">Summer Flip Flops</a></h6>-->
                     <!-- Product Price -->
-                    <div class="price">
-                        <span>$34</span>
-                    </div>
-                </div>
-            </div>
-            <!-- Carousel Item -->
-            <div class="product-box">
-                <div class="product-img">
-                    <!-- Product IMG -->
-                    <a class="product-img-link" href="product-single.html">
-                        <img src="../assets/images/product-flipflops.jpg" alt="">
-                    </a>
-                    <!-- Badge (left) -->
-                    <div class="product-badge-left">
-                        <span>New</span>
-                    </div>
-                    <!-- Badge (right) -->
-                    <div class="product-badge-right red">
-                        <span>-50%</span>
-                    </div>
-                    <!-- Add to Cart -->
-                    <div class="add-to-cart">
-                        <a href="#">Add to Cart</a>
-                    </div>
-                </div>
-                <div class="product-title">
-                    <!-- Product Title -->
-                    <h6 class="font-weight-medium"><a href="product-single.html">Summer Flip Flops</a></h6>
-                    <!-- Product Price -->
-                    <div class="price">
+                    <!--<div class="price">
                         <del>$68</del>
                         <span>$34</span>
                     </div>
                 </div>
-            </div>
+            </div>-->
             <!-- Carousel Item -->
-            <div class="product-box">
-                <div class="product-img">
+            <!--<div class="product-box">
+                <div class="product-img">-->
                     <!-- Product IMG -->
-                    <a class="product-img-link" href="product-single.html">
+                    <!--<a class="product-img-link" href="product-single.html">
                         <img src="../assets/images/product-shoes.jpg" alt="">
-                    </a>
+                    </a>-->
                     <!-- Badge (left) -->
                     <!--<div class="product-badge-left">
-                        <span>New</span>
-                    </div>-->
+                <span>New</span>
+            </div>-->
                     <!-- Badge (right) -->
-                    <div class="product-badge-right red">
+                    <!--<div class="product-badge-right red">
                         <span>-50%</span>
-                    </div>
+                    </div>-->
                     <!-- Add to Cart -->
-                    <div class="add-to-cart">
+                    <!--<div class="add-to-cart">
                         <a href="#">Add to Cart</a>
                     </div>
                 </div>
-                <div class="product-title">
+                <div class="product-title">-->
                     <!-- Product Title -->
-                    <h6 class="font-weight-medium"><a href="product-single.html">Slip-on Sneakers</a></h6>
+                    <!--<h6 class="font-weight-medium"><a href="product-single.html">Slip-on Sneakers</a></h6>-->
                     <!-- Product Price -->
-                    <div class="price">
+                    <!--<div class="price">
                         <del>$98</del>
                         <span>$49</span>
                     </div>
                 </div>
-            </div>
+            </div>-->
             <!-- Carousel Item -->
-            <div class="product-box">
-                <div class="product-img">
+            <!--<div class="product-box">
+                <div class="product-img">-->
                     <!-- Product IMG -->
-                    <a class="product-img-link" href="product-single.html">
+                    <!--<a class="product-img-link" href="product-single.html">
                         <img src="../assets/images/product-pillow.jpg" alt="">
-                    </a>
+                    </a>-->
                     <!-- Badge (left) -->
                     <!--<div class="product-badge-left">
-                        <span>New</span>
-                    </div>-->
+                <span>New</span>
+            </div>-->
                     <!-- Badge (right) -->
-                    <div class="product-badge-right red">
+                    <!--<div class="product-badge-right red">
                         <span>-50%</span>
-                    </div>
+                    </div>-->
                     <!-- Add to Cart -->
-                    <div class="add-to-cart">
+                    <!--<div class="add-to-cart">
                         <a href="#">Add to Cart</a>
                     </div>
                 </div>
-                <div class="product-title">
+                <div class="product-title">-->
                     <!-- Product Title -->
-                    <h6 class="font-weight-medium"><a href="product-single.html">Gradient Pillows</a></h6>
+                    <!--<h6 class="font-weight-medium"><a href="product-single.html">Gradient Pillows</a></h6>-->
                     <!-- Product Price -->
-                    <div class="price">
+                    <!--<div class="price">
                         <del>$49</del>
                         <span>$24</span>
                     </div>
                 </div>
-            </div>
+            </div>-->
         </div><!-- end owl-carousel -->
     </div><!-- end container -->
 </div>
